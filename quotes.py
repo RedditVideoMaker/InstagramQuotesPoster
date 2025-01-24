@@ -73,10 +73,11 @@ def create_instagram_post(quote, author):
     draw.text((width - watermark_width - 10, height - watermark_height - 10),
               watermark_text, font=watermark_font, fill=text_color)
 
-    # Save the image in a date-specific folder
-    date_folder = datetime.now().strftime("%Y-%m-%d")
-    os.makedirs(date_folder, exist_ok=True)
-    image_path = os.path.join(date_folder, "instagram_post.png")
+    # Save the image in the Images folder with the date as the filename
+    date_str = datetime.now().strftime("%Y-%m-%d")
+    images_folder = "Images"
+    os.makedirs(images_folder, exist_ok=True)
+    image_path = os.path.join(images_folder, f"{date_str}.png")
     image.save(image_path)
     print(f"Instagram post saved as '{image_path}'")
 
